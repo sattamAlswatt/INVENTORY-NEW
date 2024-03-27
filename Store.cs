@@ -8,6 +8,8 @@ class Store<T> where T : Item
     private List<T> _items;
     private int _capacity;
     //CAN ADD NAME.
+    // var store1 = new Store(200)
+
     public Store(int capacity)
     {
         _capacity = capacity;
@@ -34,6 +36,13 @@ class Store<T> where T : Item
             }
         }
     }
+    // maximum capacity is 1000 : var store = new Store(1000)
+    // current total quantity of the store is 800 
+    // new item quantity is 300  800 + 300 = 1100
+
+    // _items = [{name:"phone",quantity: 200}, {name: "laptop", quantity: 300}]
+    // newItem = {name: "laptop", quantity 200}
+    // newItem = {name: "tablet", quantity 200}
     public void AddItem(T newItem)
     {
         if (GetCurrentVolume() + newItem.GetQuantity() >= _capacity)
@@ -74,13 +83,13 @@ class Store<T> where T : Item
     {
         var groupByMonth = (from item in _items
                             let currentDate = DateTime.Now
-                            let category = (currentDate - item.GetDate()).TotalDays <= 90 ? "New Arrival" : "Old"
+                            let category = (currentDate - item.GetDate()).TotalDays <= 90 ? "New Arrival" : "Old Items"
                             group item by category into newGroup
                             orderby newGroup.Key
                             select newGroup);
         foreach (var monthGroup in groupByMonth)
         {
-            Console.WriteLine($"{monthGroup.Key} ( {monthGroup.Count()} ) : ");
+            Console.WriteLine($"{monthGroup.Key} ( {monthGroup.Key} ) : ");
             foreach (var item in monthGroup)
             {
                 Console.WriteLine($" - {item.GetName()},\n Created: {item.GetDate()}");

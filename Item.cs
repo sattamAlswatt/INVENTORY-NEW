@@ -1,20 +1,11 @@
 class Item
 {
     private readonly string _name;
-    private int _quantity { get; set; }
-    private DateTime _date { get; } //? _createdAt OR _createdDate
-    // public Item(string name, int quantity)
-    // {
-    //     _name = name;
-    //     _quantity = quantity;
-    //     _date = DateTime.Now;//.AddMilliseconds;
-    // }
-    // public Item(string name, int quantity, DateTime dateTime)
-    // {
-    //     _name = name;
-    //     _quantity = quantity;
-    //     _date = dateTime;
-    // }
+    private int _quantity;
+    private DateTime _date;  //? _createdAt OR _createdDate
+
+    // item1 = new Item("coffee", 200)
+    // item1 = new Item("coffee", 200, "2024-03-29")
     public Item(string name, int quantity, DateTime dateTime = default)
     {
         if (quantity < 0) throw new ArgumentException("Quantity should be greater than 0! ");

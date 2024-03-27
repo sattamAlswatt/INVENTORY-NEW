@@ -50,9 +50,3 @@
         }
     }
 }
-
-
-// in store , there will be an array of _items, that contains Item object
-// _items = [Item, Item, Item]
-// _items = [{name: "laptop" , 20, default}, {name: "mac mini" , 20, "2024-03-24"}]
-// one of the staff they wanna add new item = {name: "laptop" , 24, default}
