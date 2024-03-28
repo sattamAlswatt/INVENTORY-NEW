@@ -2,6 +2,24 @@ class Item
 {
     private readonly string _name;
     private int _quantity;
+    public int Quantity
+    {
+        get
+        {
+            return _quantity;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException("QUANTITY BE NEGATIVE")
+            }
+            else
+            {
+                _quantity = value;
+            }
+        }
+    }
     private DateTime _date;  //? _createdAt OR _createdDate
 
     // item1 = new Item("coffee", 200)
